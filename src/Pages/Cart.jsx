@@ -54,7 +54,7 @@ const Cart = () => {
           <div className="cart-item" key={item.id}>
             {/* IMAGE */}
             <img
-  src={item.image}
+  src={getImage(item.image)}
   alt={item.name}
   className="cart-img"
   onError={(e) => (e.target.src = "/placeholder.png")}
