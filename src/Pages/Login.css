@@ -1,0 +1,115 @@
+/* Background Blur Overlay */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+.close-icon {
+  position: absolute;
+  top: 12px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+  color: #444;
+}
+
+.close-icon:hover {
+  color: red;
+}
+
+/* Login Card */
+.login-card {
+  background: #ffffff;
+  width: 380px;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+  animation: popIn 0.2s ease-in-out;
+  text-align: center;
+  position: relative;
+}
+
+/* Logo */
+.login-logo img {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+/* Title */
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Input Boxes */
+.login-input {
+  width: 90%;
+  padding: 12px;
+  margin-bottom: 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.login-input:focus {
+  border-color: #008000;
+  box-shadow: 0 0 3px rgba(0, 128, 0, 0.4);
+}
+
+/* Login Button */
+.login-btn-main {
+  width: 50%;
+  padding: 10px;
+  background: #008000; 
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-right: 15px;
+  transition: 0.2s;
+}
+
+.login-btn-main:hover {
+  background: #006400;
+}
+
+/* Close Button */
+.close-btn {
+  width: 40%;
+  padding: 10px;
+  background: #c0392b;
+  margin-top: 20px;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: #a83224;
+}
+
+/* Animation */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

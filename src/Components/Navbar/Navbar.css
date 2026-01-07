@@ -1,0 +1,146 @@
+/* Wrapper */
+.navbar-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Navbar */
+.navbar {
+  width: 90%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+justify-content: space-between;
+gap: 30px;  
+
+  font-size: 16px;
+}
+
+/* LEFT SECTION */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 30px; 
+}
+
+.logo {
+  height: 100px;
+}
+
+.nav-item {
+  font-weight: 500;
+  cursor: pointer;
+  color: black;           
+  text-decoration: none;  
+}
+
+.nav-item:hover {
+  color: #16a34a;         
+  text-decoration: none;  
+}
+
+
+/* SEARCH BAR – POTHYS STYLE */
+.nav-search {
+  display: flex;
+  align-items: center;
+  /* width: 360px;  */
+  background: #f3f4f6;    /* light bar */
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 0 20px;         /* 👈 reduce before & after gap */
+}
+
+/* Input */
+.nav-search input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 16px;
+  background: transparent;
+  font-size: 15px;
+}
+
+/* Search icon box */
+.search-btn {
+  background: #6b7280;    /* 👈 darker icon bg */
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.search-btn svg {
+  color: #fff;
+  font-size: 16px;
+}
+
+
+.nav-search input {
+  width: 100%;
+  padding: 10px 42px 10px 16px;
+  border-radius: 30px;
+  border: none;
+  background: #f3f4f6;
+  outline: none;
+  font-size: 14px;
+}
+
+
+
+/* RIGHT SECTION */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Login */
+.login-btn {
+  background: #16a34a;
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background: #15803d;
+}
+
+/* Cart */
+.cart {
+  position: relative;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background: red;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 50%;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-search {
+    width: 280px;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-search {
+    display: none;
+  }
+}
