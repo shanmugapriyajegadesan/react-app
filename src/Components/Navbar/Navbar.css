@@ -1,4 +1,3 @@
-/* Wrapper */
 .navbar-wrapper {
   display: flex;
   justify-content: center;
@@ -6,66 +5,59 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Navbar */
 .navbar {
   width: 90%;
   height: 70px;
   display: flex;
   align-items: center;
-justify-content: space-between;
-gap: 30px;  
-
+  justify-content: space-between;
+  gap: 20px;
   font-size: 16px;
 }
 
-/* LEFT SECTION */
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 30px; 
+  gap: 20px;
 }
 
 .logo {
-  height: 100px;
+  height: 70px;
 }
 
 .nav-item {
   font-weight: 500;
   cursor: pointer;
-  color: black;           
-  text-decoration: none;  
+  color: black;
+  text-decoration: none;
+  white-space: nowrap;
 }
 
 .nav-item:hover {
-  color: #16a34a;         
-  text-decoration: none;  
+  color: #16a34a;
 }
 
-
-/* SEARCH BAR – POTHYS STYLE */
 .nav-search {
   display: flex;
   align-items: center;
-  /* width: 360px;  */
-  background: #f3f4f6;    /* light bar */
+  background: #f3f4f6;
   border-radius: 30px;
   overflow: hidden;
-  margin: 0 20px;         /* 👈 reduce before & after gap */
+  flex: 1;
+  max-width: 400px;
 }
 
-/* Input */
 .nav-search input {
   flex: 1;
   border: none;
   outline: none;
   padding: 10px 16px;
   background: transparent;
-  font-size: 15px;
+  font-size: 14px;
 }
 
-/* Search icon box */
 .search-btn {
-  background: #6b7280;    /* 👈 darker icon bg */
+  background: #6b7280;
   padding: 10px 16px;
   display: flex;
   align-items: center;
@@ -78,35 +70,20 @@ gap: 30px;
   font-size: 16px;
 }
 
-
-.nav-search input {
-  width: 100%;
-  padding: 10px 42px 10px 16px;
-  border-radius: 30px;
-  border: none;
-  background: #f3f4f6;
-  outline: none;
-  font-size: 14px;
-}
-
-
-
-/* RIGHT SECTION */
 .nav-right {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
-/* Login */
 .login-btn {
   background: #16a34a;
   color: #fff;
   border: none;
-  padding: 8px 18px;
+  padding: 8px 16px;
   border-radius: 6px;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -114,7 +91,6 @@ gap: 30px;
   background: #15803d;
 }
 
-/* Cart */
 .cart {
   position: relative;
   font-size: 20px;
@@ -132,15 +108,52 @@ gap: 30px;
   border-radius: 50%;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+  .navbar {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 10px 0;
+  }
+
   .nav-search {
-    width: 280px;
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .logo {
+    height: 60px;
+  }
+
+  .nav-item {
+    font-size: 14px;
   }
 }
 
 @media (max-width: 768px) {
+  .nav-left {
+    gap: 10px;
+  }
+
+  .nav-item {
+    display: none;
+  }
+
   .nav-search {
     display: none;
+  }
+
+  .logo {
+    height: 50px;
+  }
+
+  .login-btn {
+    padding: 6px 12px;
+    font-size: 13px;
+  }
+
+  .cart {
+    font-size: 18px;
   }
 }

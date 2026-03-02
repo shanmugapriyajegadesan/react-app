@@ -4,23 +4,20 @@ import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/CartSlice";
 import { toast } from "react-toastify";
 
-const BASE_URL = "http://127.0.0.1:8000";
-
 const ProductCard = ({ item }) => {
   const dispatch = useDispatch();
 
-  // ✅ Safe defaults
   const unitOptions = item.unitOptions?.length ? item.unitOptions : ["1 pc"];
   const originalPrice = item.originalPrice || item.price;
   const offer = item.offer || null;
 
   const [selectedUnit, setSelectedUnit] = useState(unitOptions[0]);
+  const [imageSrc, setImageSrc] = useState(item.image);
 
-  // 🔁 unit → value
   const getUnitValue = (unit) => {
     if (!unit) return 1;
-    if (unit.includes("kg")) return parseInt(unit) * 1000;
-    if (unit.includes("g")) return parseInt(unit);
+    if (unit.includes("kg")) return parseFloat(unit) * 1000;
+    if (unit.includes("g")) return parseFloat(unit);
     if (unit.includes("pc")) return parseInt(unit);
     return 1;
   };
@@ -29,8 +26,7 @@ const ProductCard = ({ item }) => {
   const selectedValue = getUnitValue(selectedUnit);
 
   const finalPrice = (selectedValue / baseValue) * item.price;
-  const finalOriginalPrice =
-    (selectedValue / baseValue) * originalPrice;
+  const finalOriginalPrice = (selectedValue / baseValue) * originalPrice;
 
   const handleAddToCart = () => {
     dispatch(
@@ -42,19 +38,11 @@ const ProductCard = ({ item }) => {
         unit: selectedUnit,
         price: finalPrice,
         originalPrice: finalOriginalPrice,
+        qty: 1,
       })
     );
     toast.success("Added to cart 🛒");
   };
-
-  const imageSrc = item.image
-  ? item.image.startsWith("http")
-    ? item.image                          
-    : item.image.startsWith("/media")
-      ? `${BASE_URL}${item.image}`        
-      : item.image                        
-  : "/placeholder.png";
-
 
   return (
     <div className="product-card">
@@ -62,9 +50,9 @@ const ProductCard = ({ item }) => {
         <img
           src={imageSrc}
           alt={item.name}
-          onError={(e) => {
-            e.target.src = "/placeholder.png";
-          }}
+          className="product-img"
+          loading="lazy"
+          onError={() => setImageSrc("/placeholder.png")}
         />
       </div>
 
@@ -72,7 +60,6 @@ const ProductCard = ({ item }) => {
 
       <h3 className="product-name">{item.name}</h3>
 
-      {/* 🔽 Unit selector */}
       <div className="unit-bar">
         {unitOptions.map((unit) => (
           <button
@@ -85,7 +72,6 @@ const ProductCard = ({ item }) => {
         ))}
       </div>
 
-      {/* 💰 Price */}
       <div className="price">
         <span className="old">₹{finalOriginalPrice.toFixed(0)}</span>
         <span className="new">₹{finalPrice.toFixed(0)}</span>

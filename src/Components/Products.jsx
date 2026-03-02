@@ -7,9 +7,8 @@ import "./Products.css";
 const Products = () => {
   const { categoryId } = useParams();
 
-  const products = categoryData[categoryId]; // 👈 DIRECT ARRAY
+  const products = categoryData[categoryId]; 
 
-  // safety check
   if (!Array.isArray(products)) {
     return <p>No products available</p>;
   }

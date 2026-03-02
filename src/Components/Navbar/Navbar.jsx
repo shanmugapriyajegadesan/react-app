@@ -3,15 +3,12 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import { FaShoppingCart } from "react-icons/fa";
 import logo from "../../Assets/logo.png";
-import Login from "../../Pages/Login";
 import { useSelector } from "react-redux";
+import AuthModal from "../../Pages/AuthModel";
 
 const Navbar = ({ children }) => {
-  const cartCount = useSelector(
-    (state) => state.cart.items.length
-  );
-
-  const [showLogin, setShowLogin] = useState(false);
+  const cartCount = useSelector((state) => state.cart.items.length);
+  const [showAuth, setShowAuth] = useState(false);
   const navigate = useNavigate();
 
   // ✅ CHECK LOGIN STATE
@@ -48,9 +45,9 @@ const Navbar = ({ children }) => {
             {!isLoggedIn ? (
               <button
                 className="login-btn"
-                onClick={() => setShowLogin(true)}
+                onClick={() => setShowAuth(true)}
               >
-                Login
+                Login / Signup
               </button>
             ) : (
               <button
@@ -70,8 +67,8 @@ const Navbar = ({ children }) => {
         </nav>
       </header>
 
-      {/* ✅ LOGIN MODAL */}
-      {showLogin && <Login onClose={() => setShowLogin(false)} />}
+      {/* ✅ AUTH MODAL */}
+      {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
     </>
   );
 };

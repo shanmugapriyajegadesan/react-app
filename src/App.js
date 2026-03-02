@@ -12,7 +12,7 @@ import Header from "./Components/Header/Header";
 import SearchResults from "./Pages/SearchResults";
 
 import Login from "./Pages/Login";
-import SignUp from "./Pages/SignUp";
+import SignUp from "./Pages/Signup";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

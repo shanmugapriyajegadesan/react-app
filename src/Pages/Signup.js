@@ -1,45 +1,33 @@
 import React, { useState } from "react";
-import "./Login.css";
-import logo from "../Assets/logo.png";
 import axios from "axios";
+import "./Login.css"; // same design reuse pannalam
 
-const Login = ({ onClose, switchToSignup }) => {
+const Signup = ({ onClose, switchToLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleSignup = async () => {
     try {
-      const res = await axios.post(
-        "http://127.0.0.1:8000/api/token/",
-        { username, password }
-      );
+      await axios.post("http://127.0.0.1:8000/api/signup/", {
+        username,
+        password,
+      });
 
-      localStorage.setItem("access", res.data.access);
-      localStorage.setItem("refresh", res.data.refresh);
-
-      onClose(); // close modal
-      window.location.reload(); // refresh navbar
-    } catch {
-      alert("Invalid credentials");
+      alert("Signup successful! Please login.");
+      switchToLogin(); 
+    } catch (err) {
+      alert("Signup failed");
     }
   };
 
   return (
     <div className="login-overlay" onClick={onClose}>
-      <div
-        className="login-card"
-        onClick={(e) => e.stopPropagation()}
-      >
-        {/* Close icon */}
+      <div className="login-card" onClick={(e) => e.stopPropagation()}>
         <span className="close-icon" onClick={onClose}>
           &times;
         </span>
 
-        <div className="login-logo">
-          <img src={logo} alt="Pothys Mart" />
-        </div>
-
-        <h2 className="login-title">Login/Signup</h2>
+        <h2 className="login-title">Sign Up</h2>
 
         <input
           type="text"
@@ -57,16 +45,15 @@ const Login = ({ onClose, switchToSignup }) => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button className="login-btn-main" onClick={handleLogin}>
-          Signup
+        <button className="login-btn-main" onClick={handleSignup}>
+          Sign Up
         </button>
 
-        {/* switch to signup */}
         <p style={{ marginTop: "15px" }}>
           Already have an account?{" "}
           <span
             style={{ color: "blue", cursor: "pointer" }}
-            onClick={switchToSignup}
+            onClick={switchToLogin}
           >
             Login
           </span>
@@ -76,4 +63,4 @@ const Login = ({ onClose, switchToSignup }) => {
   );
 };
 
-export default Login;
+export default Signup;
