@@ -43,8 +43,8 @@
   background: #f3f4f6;
   border-radius: 30px;
   overflow: hidden;
-  flex: 1;
-  max-width: 400px;
+  width: 300px;
+  flex: none;
 }
 
 .nav-search input {
