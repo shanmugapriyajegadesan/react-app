@@ -3,6 +3,7 @@
   justify-content: center;
   background: #fff;
   border-bottom: 1px solid #e5e7eb;
+  position: relative;
 }
 
 .navbar {
@@ -108,52 +109,48 @@
   border-radius: 50%;
 }
 
-@media (max-width: 992px) {
-  .navbar {
-    flex-wrap: wrap;
-    height: auto;
-    padding: 10px 0;
-  }
+.hamburger {
+  display: none;
+  font-size: 22px;
+  cursor: pointer;
+}
 
-  .nav-search {
-    order: 3;
-    width: 100%;
-    max-width: 100%;
-    margin-top: 10px;
-  }
-
-  .logo {
-    height: 60px;
-  }
-
-  .nav-item {
-    font-size: 14px;
-  }
+.mobile-menu {
+  display: flex;
+  gap: 20px;
 }
 
 @media (max-width: 768px) {
-  .nav-left {
-    gap: 10px;
-  }
-
-  .nav-item {
-    display: none;
-  }
-
   .nav-search {
     display: none;
   }
 
+  .mobile-menu {
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background: #fff;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    transition: 0.3s ease;
+  }
+
+  .mobile-menu.active {
+    left: 0;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
   .logo {
-    height: 50px;
+    height: 55px;
   }
 
   .login-btn {
     padding: 6px 12px;
     font-size: 13px;
-  }
-
-  .cart {
-    font-size: 18px;
   }
 }
