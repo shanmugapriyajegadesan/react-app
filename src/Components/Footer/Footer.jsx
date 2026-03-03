@@ -5,10 +5,10 @@ import logo from "../../Assets/logo.png";
 
 const Footer = () => {
   return (
+    
     <footer className="footer">
       <div className="footer-container">
 
-        {/* Brand */}
         <div className="footer-section">
           <div className="footer-logo">
             <img src={logo} alt="logo" />
