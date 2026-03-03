@@ -1,6 +1,7 @@
 .banner-wrapper {
   width: 100%;
   margin: 20px 0;
+  padding: 0 15px;
 }
 
 .banner-container {
@@ -22,9 +23,30 @@
   transform: scale(1.03);
 }
 
+@media (max-width: 1024px) {
+  .banner-wrapper {
+    margin: 15px 0;
+  }
+  .banner-image {
+    height: 220px;
+  }
+}
 
 @media (max-width: 768px) {
+  .banner-wrapper {
+    padding: 0 10px;
+  }
   .banner-image {
     height: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-wrapper {
+    padding: 0 8px;
+  }
+  .banner-image {
+    height: 150px;
+    border-radius: 12px;
   }
 }
